@@ -8,7 +8,7 @@ below is copy-pasteable from a fresh clone.
 ## Setup
 
 ```bash
-git clone https://github.com/OWNER/gxkb-toolkit.git
+git clone https://github.com/122043254/gxkb-toolkit.git
 cd gxkb-toolkit
 pnpm install
 pnpm --filter xpz-extract run build

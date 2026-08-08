@@ -3,7 +3,7 @@
 Herramientas modernas para Knowledge Bases de GeneXus — Git, IDEs, tests y asistentes de IA donde GeneXus no ofrece ninguno de los tres.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
-[![CI](https://github.com/OWNER/gxkb-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/gxkb-toolkit/actions/workflows/ci.yml)
+[![CI](https://github.com/122043254/gxkb-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/122043254/gxkb-toolkit/actions/workflows/ci.yml)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D20-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 
@@ -28,7 +28,7 @@ un único bloque XML denso, no un proyecto. Este toolkit convierte ese bloque en
 ## Quick start
 
 ```bash
-git clone https://github.com/OWNER/gxkb-toolkit.git
+git clone https://github.com/122043254/gxkb-toolkit.git
 cd gxkb-toolkit
 pnpm install
 pnpm --filter xpz-extract run build
