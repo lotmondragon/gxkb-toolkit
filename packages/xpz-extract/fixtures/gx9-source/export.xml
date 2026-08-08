@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ExportFile>
+  <Model>
+    <Id>1</Id>
+    <Name>SyntheticExport</Name>
+    <Type>Prototype</Type>
+  </Model>
+  <GXObject>
+    <Transaction>
+      <Info>
+        <Name>Customer</Name>
+        <Description>Customer master data.</Description>
+      </Info>
+      <Structure>
+        <Source><![CDATA[
+CustomerId*
+CustomerName
+CustomerEmail
+CustomerBalance
+        ]]></Source>
+        <AllowNulls>
+          <Name>CustomerEmail</Name>
+          <Value>Yes</Value>
+        </AllowNulls>
+        <LevelInfo>
+          <KeyId>1</KeyId>
+          <Name>Customer</Name>
+          <Description>Customer master data.</Description>
+        </LevelInfo>
+      </Structure>
+      <Rules><![CDATA[
+Serial(CustomerId, LastCustomerId, 1);
+Required(CustomerName);
+]]></Rules>
+    </Transaction>
+  </GXObject>
+  <GXObject>
+    <Procedure>
+      <Info>
+        <Name>GetCustomerBalance</Name>
+        <Description>Returns the current balance for a customer.</Description>
+      </Info>
+      <Layout>
+        <Block>
+          <CodeBlock>
+            <left>0</left>
+            <top>0</top>
+            <right>2540</right>
+            <bottom>1000</bottom>
+            <Source><![CDATA[
+&Balance = 0
+for each
+    where CustomerId = &CustomerId
+    &Balance = CustomerBalance
+endfor
+            ]]></Source>
+          </CodeBlock>
+        </Block>
+      </Layout>
+      <Rules><![CDATA[
+Parm(in:&CustomerId, out:&Balance);
+]]></Rules>
+    </Procedure>
+  </GXObject>
+  <GXObject>
+    <WebPanel>
+      <Info>
+        <Name>CustomerList</Name>
+        <Description>Lists customers and lets the user refresh a selected balance.</Description>
+      </Info>
+      <Events><![CDATA[
+Event Start
+  &SearchText = ""
+EndEvent
+
+Event Refresh
+  Call(GetCustomerBalance, &CustomerId, &Balance)
+EndEvent
+      ]]></Events>
+      <Rules><![CDATA[
+NoAccept(CustomerBalance);
+]]></Rules>
+    </WebPanel>
+  </GXObject>
+  <Attributes>
+    <GXAtt>
+      <Attribute>
+        <Name>CustomerId</Name>
+        <Type>Numeric</Type>
+        <Length>8</Length>
+        <Decimals>0</Decimals>
+      </Attribute>
+      <AttInfo>
+        <Domain></Domain>
+      </AttInfo>
+    </GXAtt>
+    <GXAtt>
+      <Attribute>
+        <Name>CustomerName</Name>
+        <Type>Character</Type>
+        <Length>60</Length>
+      </Attribute>
+      <AttInfo>
+        <Domain></Domain>
+      </AttInfo>
+    </GXAtt>
+    <GXAtt>
+      <Attribute>
+        <Name>CustomerEmail</Name>
+        <Type>Character</Type>
+        <Length>100</Length>
+      </Attribute>
+      <AttInfo>
+        <Domain></Domain>
+      </AttInfo>
+    </GXAtt>
+    <GXAtt>
+      <Attribute>
+        <Name>CustomerBalance</Name>
+        <Type>Numeric</Type>
+        <Length>14</Length>
+        <Decimals>2</Decimals>
+      </Attribute>
+      <AttInfo>
+        <Domain></Domain>
+      </AttInfo>
+    </GXAtt>
+  </Attributes>
+</ExportFile>

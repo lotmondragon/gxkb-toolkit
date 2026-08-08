@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<KBObject Type="WebPanel" Name="CustomerList" Description="Lists customers and lets the user refresh a selected balance.">
+  <Variables>
+    <Variable Name="SearchText" Type="Character" Length="50"/>
+    <Variable Name="CustomerId" Type="Numeric" Length="8" Dec="0"/>
+    <Variable Name="Balance" Type="Numeric" Length="14" Dec="2"/>
+  </Variables>
+  <Events>
+    <Event Name="Start">
+      <Source><![CDATA[
+&SearchText = ""
+      ]]></Source>
+    </Event>
+    <Event Name="Refresh">
+      <Source><![CDATA[
+Call(GetCustomerBalance, &CustomerId, &Balance)
+      ]]></Source>
+    </Event>
+  </Events>
+  <Rules>
+    <Rule Text="NoAccept(CustomerBalance);" Condition=""/>
+  </Rules>
+</KBObject>

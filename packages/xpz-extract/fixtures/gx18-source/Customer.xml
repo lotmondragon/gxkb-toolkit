@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<KBObject Type="Transaction" Name="Customer" Description="Customer master data.">
+  <Structure>
+    <Level Name="Customer">
+      <Attribute Name="CustomerId" Type="Numeric" Length="8" Dec="0" IsPK="true" Description="Unique customer identifier"/>
+      <Attribute Name="CustomerName" Type="Character" Length="60" Description="Customer display name"/>
+      <Attribute Name="CustomerEmail" Type="Character" Length="100" Description="Contact email"/>
+      <Attribute Name="CustomerBalance" Type="Numeric" Length="14" Dec="2" Description="Current account balance"/>
+    </Level>
+  </Structure>
+  <Rules>
+    <Rule Text="Serial(CustomerId, LastCustomerId, 1);" Condition=""/>
+    <Rule Text="Required(CustomerName);" Condition=""/>
+  </Rules>
+</KBObject>

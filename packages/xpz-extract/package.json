@@ -1,0 +1,45 @@
+{
+  "name": "xpz-extract",
+  "version": "0.1.0",
+  "description": "Extract a GeneXus .xpz Knowledge Base export into a navigable, Git-friendly code project.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "xpz-extract": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "genexus",
+    "xpz",
+    "code-analysis",
+    "developer-tools",
+    "cli"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "fixtures:build": "node fixtures/build.mjs",
+    "lint": "eslint src tests",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "commander": "^12.1.0",
+    "fast-xml-parser": "^4.5.1"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "^0.5.7",
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

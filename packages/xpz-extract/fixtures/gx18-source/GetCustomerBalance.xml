@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<KBObject Type="Procedure" Name="GetCustomerBalance" Description="Returns the current balance for a customer.">
+  <Parameters>
+    <Parameter Name="CustomerId" Type="Numeric" Length="8" Dec="0" Mode="In"/>
+    <Parameter Name="Balance" Type="Numeric" Length="14" Dec="2" Mode="Out"/>
+  </Parameters>
+  <Source><![CDATA[
+&Balance = 0
+For each
+  Where CustomerId = &CustomerId
+  &Balance = CustomerBalance
+EndFor
+  ]]></Source>
+  <Rules>
+    <Rule Text="Parm(in:&amp;CustomerId, out:&amp;Balance);" Condition=""/>
+  </Rules>
+</KBObject>
